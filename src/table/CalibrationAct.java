@@ -17,82 +17,78 @@ public class CalibrationAct {
     
     /**
     * Ключевое поле
-    * номер
+    * Номер
     */
     @Id
     @Column (name="id")
     private int id;
     
-    
     /**
-   
-    * ссылка на акт мотажа по номеру внутри телеметрикс, а акты тарировки просто нумерую и добавляю ссылке на людей
+    * Дата заполнения акта
     */
+    @Column (name="date")
+    private Date date;
     
     /**
     * Подразделение
     */
     @Column (name="idUnits")
     private Units idUnits;
-    /**
-    * Место установки
-    */
-    @Column (name="installPlace")
-    private String installPlace;
-    /**
-    * Дата заполнения акта
-    */
-    @Column (name="date")
-    private Date date;
+    
 //    /**
 //    * Id бригады тарировщиков
 //    */
 //    @Column (name="idBrigade")
 //    private Brigade idBrigade;
+    
     /**
     * Государственный номер
     */
     @Column (name="stateNumber")
     private Vehicle stateNumber;
+    
+    /**
+    * Место установки
+    */
+    @Column (name="installPlace")
+    private String installPlace;
+    
     /**
     * Номер автографа
     */
     @Column (name="avtografNumber")
     private String avtografNumber;
+    
     /**
     * Количество топливных баков
     */
     @Column (name="tanksNumber")
     private int tanksNumber;
-    /**
-    * Тарировка
-    */
-    @Column (name="calibration")
-    private Calibration calibration;
-    // решить вопрос с сущностью повторной тарировки
     
-    @Column (name="repeatCalibration")
-    private RepeatCalibration repeatCalibration;
     /**
     * Температура окружающей среды
     */
     @Column (name="ambientTemperature")
     private double ambientTemperature;
+    
     /**
     * Температура топлива
     */
     @Column (name="fuelTemperature")
     private double fuelTemperature; 
+    
     /**
     *Состояние топлива слито/не слито
     */ 
     @Column (name="fuelCondition")
     private boolean fuelCondition; 
+    
     /**
     *Объем слитого топлива
     */  
     @Column (name="fuelVolumeStolen")
     private double fuelVolumeStolen; 
+    
     /**
     *Объем бака
     */ 
@@ -100,187 +96,107 @@ public class CalibrationAct {
     private double tankVolume;  
     
     /**
-    *Государственный номер топливозаправщика предоставившего топливо
+    *Государственный номер топливозаправщика, предоставившего топливо
     */     
     @Column (name="stateNumberTanker")
     private Vehicle stateNumberTanker;    
+    
     /**
     *Количество топлива для тарировки
     */ 
     @Column (name="calibrationFuelVolume")
     private double calibrationFuelVolume; 
+    
     /**
     *Заполненность бака в %
     */
     @Column (name="fuelLevel")
     private double fuelLevel; 
+    
     /**
     *Наличие бумажной тарировки
     */ 
     @Column (name="paperCalibration")
     private boolean paperCalibration; 
+    
     /**
     *Наличие тарировки в мониторинге
     */ 
     @Column (name="monitoringCalibration")
     private boolean monitoringCalibration;
+    
     /**
     *Наличие паспорта
     */
     @Column (name="passport")
     private boolean passport;
+    
     /**
     *Дут не по центру
     */
     @Column (name="idFlsNotCentered")
     private FlsNotCentered idFlsNotCentered;
-    /**
-    *Комментарий
-    */
-    @Column (name="description")
-    private String description;
+     
     /**
     *Серийный номер контроллера
     */
     @Column (name="controllerSerialNumber")
     private InstallAct controllerSerialNumber;
+    
     /**
-    *Флаг заполненности акта
+    * Тарировка
     */
-    @Column (name="completenessFlag")
-    private boolean completenessFlag;
+    @Column (name="calibration")
+    private Calibration calibration;
+    
+    /**
+    * Повторная Тарировка
+    */
+    @Column (name="repeatCalibration")
+    private RepeatCalibration repeatCalibration;
+    
     /**
     * Причина тарировки
     */
     @Column (name="reasonCalibration")
     private String reasonCalibration;
+    
+    /**
+    * Тарировка сделана заказчиком 
+    */
+    @Column (name="customerCalibration")
+    private boolean customerCalibration;
 
-    public int getId() {
-        return id;
-    }
-
-    public String getNumber() {
-        return number;
-    }
-
-    public Filial getFilial() {
-        return filial;
-    }
-
-    public String getInstallPlace() {
-        return installPlace;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public Brigade getIdBrigade() {
-        return idBrigade;
-    }
-
-    public Vehicle getStateNumber() {
-        return stateNumber;
-    }
-
-    public String getAvtografNumber() {
-        return avtografNumber;
-    }
-
-    public int getTanksNumber() {
-        return tanksNumber;
-    }
-
-    public Calibration getCalibration() {
-        return calibration;
-    }
-
-    public double getAmbientTemperature() {
-        return ambientTemperature;
-    }
-
-    public double getFuelTemperature() {
-        return fuelTemperature;
-    }
-
-    public boolean isFuelCondition() {
-        return fuelCondition;
-    }
-
-    public double getFuelVolumeStolen() {
-        return fuelVolumeStolen;
-    }
-
-    public double getTankVolume() {
-        return tankVolume;
-    }
-
-    public Vehicle getStateNumberTanker() {
-        return stateNumberTanker;
-    }
-
-    public double getCalibrationFuelVolume() {
-        return calibrationFuelVolume;
-    }
-
-    public double getFuelLevel() {
-        return fuelLevel;
-    }
-
-    public boolean isPaperCalibration() {
-        return paperCalibration;
-    }
-
-    public boolean isMonitoringCalibration() {
-        return monitoringCalibration;
-    }
-
-    public boolean isPassport() {
-        return passport;
-    }
-
-    public FlsNotCentered getIdFlsNotCentered() {
-        return idFlsNotCentered;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public InstallAct getControllerSerialNumber() {
-        return controllerSerialNumber;
-    }
-
-    public boolean isCompletenessFlag() {
-        return completenessFlag;
-    }
+    /**
+    *Комментарий
+    */
+    @Column (name="description")
+    private String description;
+    
+    /**
+    *Флаг заполненности акта
+    */
+    @Column (name="completenessFlag")
+    private boolean completenessFlag;
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public void setNumber(String number) {
-        this.number = number;
-    }
-
-    public void setFilial(Filial filial) {
-        this.filial = filial;
-    }
-
-    public void setInstallPlace(String installPlace) {
-        this.installPlace = installPlace;
     }
 
     public void setDate(Date date) {
         this.date = date;
     }
 
-    public void setIdBrigade(Brigade idBrigade) {
-        this.idBrigade = idBrigade;
+    public void setIdUnits(Units idUnits) {
+        this.idUnits = idUnits;
     }
 
     public void setStateNumber(Vehicle stateNumber) {
         this.stateNumber = stateNumber;
+    }
+
+    public void setInstallPlace(String installPlace) {
+        this.installPlace = installPlace;
     }
 
     public void setAvtografNumber(String avtografNumber) {
@@ -289,10 +205,6 @@ public class CalibrationAct {
 
     public void setTanksNumber(int tanksNumber) {
         this.tanksNumber = tanksNumber;
-    }
-
-    public void setCalibration(Calibration calibration) {
-        this.calibration = calibration;
     }
 
     public void setAmbientTemperature(double ambientTemperature) {
@@ -343,15 +255,136 @@ public class CalibrationAct {
         this.idFlsNotCentered = idFlsNotCentered;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public void setControllerSerialNumber(InstallAct controllerSerialNumber) {
         this.controllerSerialNumber = controllerSerialNumber;
     }
 
+    public void setCalibration(Calibration calibration) {
+        this.calibration = calibration;
+    }
+
+    public void setRepeatCalibration(RepeatCalibration repeatCalibration) {
+        this.repeatCalibration = repeatCalibration;
+    }
+
+    public void setReasonCalibration(String reasonCalibration) {
+        this.reasonCalibration = reasonCalibration;
+    }
+
+    public void setCustomerCalibration(boolean customerCalibration) {
+        this.customerCalibration = customerCalibration;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public void setCompletenessFlag(boolean completenessFlag) {
         this.completenessFlag = completenessFlag;
-    } 
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public Units getIdUnits() {
+        return idUnits;
+    }
+
+    public Vehicle getStateNumber() {
+        return stateNumber;
+    }
+
+    public String getInstallPlace() {
+        return installPlace;
+    }
+
+    public String getAvtografNumber() {
+        return avtografNumber;
+    }
+
+    public int getTanksNumber() {
+        return tanksNumber;
+    }
+
+    public double getAmbientTemperature() {
+        return ambientTemperature;
+    }
+
+    public double getFuelTemperature() {
+        return fuelTemperature;
+    }
+
+    public boolean isFuelCondition() {
+        return fuelCondition;
+    }
+
+    public double getFuelVolumeStolen() {
+        return fuelVolumeStolen;
+    }
+
+    public double getTankVolume() {
+        return tankVolume;
+    }
+
+    public Vehicle getStateNumberTanker() {
+        return stateNumberTanker;
+    }
+
+    public double getCalibrationFuelVolume() {
+        return calibrationFuelVolume;
+    }
+
+    public double getFuelLevel() {
+        return fuelLevel;
+    }
+
+    public boolean isPaperCalibration() {
+        return paperCalibration;
+    }
+
+    public boolean isMonitoringCalibration() {
+        return monitoringCalibration;
+    }
+
+    public boolean isPassport() {
+        return passport;
+    }
+
+    public FlsNotCentered getIdFlsNotCentered() {
+        return idFlsNotCentered;
+    }
+
+    public InstallAct getControllerSerialNumber() {
+        return controllerSerialNumber;
+    }
+
+    public Calibration getCalibration() {
+        return calibration;
+    }
+
+    public RepeatCalibration getRepeatCalibration() {
+        return repeatCalibration;
+    }
+
+    public String getReasonCalibration() {
+        return reasonCalibration;
+    }
+
+    public boolean isCustomerCalibration() {
+        return customerCalibration;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public boolean isCompletenessFlag() {
+        return completenessFlag;
+    }
+    
 }

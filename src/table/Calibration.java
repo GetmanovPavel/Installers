@@ -21,12 +21,6 @@ public class Calibration {
     */
     @Column (name="calibrationName")
     private String calibrationName;
- 
-    /**
-    * Тарировка сделана заказчиком 
-    */
-    @Column (name="customerCalibration")
-    private boolean customerCalibration;
 
     public void setId(int id) {
         this.id = id;
@@ -34,10 +28,6 @@ public class Calibration {
 
     public void setCalibrationName(String calibrationName) {
         this.calibrationName = calibrationName;
-    }
-
-    public void setCustomerCalibration(boolean customerCalibration) {
-        this.customerCalibration = customerCalibration;
     }
 
     public int getId() {
@@ -48,9 +38,4 @@ public class Calibration {
         return calibrationName;
     }
 
-    public boolean isCustomerCalibration() {
-        return customerCalibration;
-    }
-
-    
 }

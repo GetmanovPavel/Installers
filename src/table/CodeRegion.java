@@ -30,4 +30,21 @@ public class CodeRegion {
  */   
    @Column (name="regionName")
    private String regionName; 
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setRegionName(String regionName) {
+        this.regionName = regionName;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getRegionName() {
+        return regionName;
+    }
+   
 }

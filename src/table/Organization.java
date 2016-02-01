@@ -21,26 +21,24 @@ public class Organization {
     @Id
     @Column (name="id")
     private int id;
+    
     /**
-    * Название организации
-    */
+     * Название организации
+     */
     @Column (name="NameOrganization")
     private String nameOrganization;
+    
     /**
-    * Сокращенное название для номера документа
-    */
+     * Сокращенное название для номера документа
+     */
     @Column (name="ShortNameOrganization")
     private String ShortNameOrganization;
+    
     /**
-    * Количество актов монтажа для нумерации
-    */
+     * Количество актов монтажа для нумерации
+     */
     @Column (name="countInstallAct")
     private int countInstallAct;
-    /**
-    * Ссылка на подразделение
-    */
-    @Column (name="idUnits")
-    private Units idUnits;
 
     public int getId() {
         return id;
@@ -57,11 +55,6 @@ public class Organization {
     public int getCountInstallAct() {
         return countInstallAct;
     }
-
-    public Units getIdUnits() {
-        return idUnits;
-    }
-
     
     public void setId(int id) {
         this.id = id;
@@ -78,10 +71,5 @@ public class Organization {
     public void setCountInstallAct(int countInstallAct) {
         this.countInstallAct = countInstallAct;
     }
-
-    public void setIdUnits(Units idUnits) {
-        this.idUnits = idUnits;
-    }
-    
     
 }

@@ -17,21 +17,24 @@
     <mapping class="table.Brigade"/>
     <mapping class="table.Calibration"/>
     <mapping class="table.CalibrationAct"/>
+    <mapping class="table.CodeRegion"/>
     <mapping class="table.Equipment"/>
     <mapping class="table.EquipmentType"/>
     <mapping class="table.Filial"/>
     <mapping class="table.Filling"/>
     <mapping class="table.FlsNotCentered"/>
+    <mapping class="table.Gps"/>
     <mapping class="table.Gsm"/>
     <mapping class="table.GuideTechnique"/>
     <mapping class="table.Images"/>
-    <mapping class="table.InstallAct"/>
     <mapping class="table.Organization"/>
     <mapping class="table.Personal"/>
+    <mapping class="table.PurposeSeal"/>
     <mapping class="table.Receive"/>
+    <mapping class="table.RepeatCalibration"/>
+    <mapping class="table.TypeSeal"/>
     <mapping class="table.Units"/>
     <mapping class="table.Vehicle"/>
-    
     
   </session-factory>
 </hibernate-configuration>

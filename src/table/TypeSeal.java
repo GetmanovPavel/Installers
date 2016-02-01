@@ -15,7 +15,6 @@ import javax.persistence.Table;
  * pawka9494@mail.ru
  */
 
-
 /**
  * Тип пломбы
  */
@@ -29,4 +28,21 @@ public class TypeSeal {
    
    @Column (name="typeSeal")
    private String typeSeal;
+
+    public int getId() {
+        return id;
+    }
+
+    public String getTypeSeal() {
+        return typeSeal;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setTypeSeal(String typeSeal) {
+        this.typeSeal = typeSeal;
+    }
+   
 }

@@ -17,23 +17,17 @@ public class Filial {
     @Column (name="Id")
     private int id;
     
+    /**
+     * Название филиала
+     */
     @Column (name="filialName")
     private String filialName;
     
+    /**
+     * Связь с организацией
+     */
     @Column (name="idOrganization")
     private Organization idOrganization;
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setFilialName(String filialName) {
-        this.filialName = filialName;
-    }
-
-    public void setIdUnits(Units idUnits) {
-        this.idUnits = idUnits;
-    }
 
     public int getId() {
         return id;
@@ -43,8 +37,20 @@ public class Filial {
         return filialName;
     }
 
-    public Units getIdUnits() {
-        return idUnits;
+    public Organization getIdOrganization() {
+        return idOrganization;
     }
-    
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setFilialName(String filialName) {
+        this.filialName = filialName;
+    }
+
+    public void setIdOrganization(Organization idOrganization) {
+        this.idOrganization = idOrganization;
+    }
+
 }

@@ -35,5 +35,4 @@ public class Gsm {
         this.gsmState = gsmState;
     }
 
-  
 }

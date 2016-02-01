@@ -19,6 +19,20 @@ public class Gps {
    @Column (name="gpsState")
    private String gpsState;
 
+    public int getId() {
+        return id;
+    }
 
-  
+    public String getGpsState() {
+        return gpsState;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setGpsState(String gpsState) {
+        this.gpsState = gpsState;
+    }
+   
 }

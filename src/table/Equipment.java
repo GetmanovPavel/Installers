@@ -11,7 +11,7 @@ import javax.persistence.Table;
  * pawka9494@mail.ru
  */
 @Entity
-@Table(name="Equipment")//спорное выделение в отдельную сущность.
+@Table(name="Equipment")
 class Equipment {
    @Id
    @Column (name="id")
@@ -21,21 +21,26 @@ class Equipment {
     * Назначение оборудования
     */
    @Column (name="purposeEquipment")
-    private String purposeEquipment;
+   private String purposeEquipment;
    /**
     * Связь с актом монтажа
     */
-    @Column (name="serialNumberController")
-    private InstallAct serialNumberController;
+   @Column (name="serialNumberController")
+   private InstallAct serialNumberController;
    
+   /**
+    * Связь с типом оборудования
+    */
    @Column (name="idType")
    private EquipmentType idType; 
-    /**
+   
+   /**
     * Длина установленной линейки
     */
    @Column (name="lengthInstallLine")
-    private int lengthInstallLine;
-    /**
+   private int lengthInstallLine;
+   
+   /**
     * Серийный номер оборудования
     */
    @Column (name="serial")
@@ -49,6 +54,9 @@ class Equipment {
         return purposeEquipment;
     }
 
+    public InstallAct getSerialNumberController() {
+        return serialNumberController;
+    }
 
     public EquipmentType getIdType() {
         return idType;
@@ -70,8 +78,8 @@ class Equipment {
         this.purposeEquipment = purposeEquipment;
     }
 
-    public void setKolvoEquipment(int kolvoEquipment) {
-        this.kolvoEquipment = kolvoEquipment;
+    public void setSerialNumberController(InstallAct serialNumberController) {
+        this.serialNumberController = serialNumberController;
     }
 
     public void setIdType(EquipmentType idType) {
@@ -85,5 +93,5 @@ class Equipment {
     public void setSerial(String serial) {
         this.serial = serial;
     }
-   
+
 }

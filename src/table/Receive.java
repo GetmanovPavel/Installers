@@ -9,6 +9,10 @@ import javax.persistence.Table;
  * @author Гетманов Павел
  * pawka9494@mail.ru
  */
+
+/**
+  * Кто принял работу
+  */
 @Entity
 @Table(name="Receive")
 public class Receive {

@@ -17,16 +17,18 @@ public class InstallAct {
     */
     @Column (name="IdcodeRegion")
     private CodeRegion IdcodeRegion;
-    /**
-    * Дата заполнения акта
-    */
-    @Column (name="date")
-    private Date date;
+    
     /**
     * Номер акта внутри телеметрикс
     */
     @Column (name="number")
     private int number;
+    
+    /**
+    * Дата заполнения акта
+    */
+    @Column (name="date")
+    private Date date;
     
     /**
     * Ключевое поле
@@ -35,6 +37,7 @@ public class InstallAct {
     @Id
     @Column (name="controllerSerialNumber")
     private String controllerSerialNumber;
+    
     /**
     * Абонентский номер Sim карты 1
     */
@@ -52,92 +55,72 @@ public class InstallAct {
     */
     @Column (name="simCardNumberMobOperator")
     private String simCardNumberMobOperator;
-    
-    
-    
-    //в отдельную сущность модели
-    // ex modelDUT1
-//    @Column (name="fuelLevelSensorModel1")
-//    private String fuelLevelSensorModel1;
-//    @Column (name="fuelLevelSensorSerial1")
-//    private String fuelLevelSensorSerial1;
-//
-//    @Column (name="fuelLevelSensorModel2")
-//    private String fuelLevelSensorModel2;
-//    @Column (name="fuelLevelSensorSerial2")
-//    private String fuelLevelSensorSerial2;
    
     /**
-    * Индикация системы GSM в отдельной сущности
-    */
+     * Индикация системы GSM в отдельной сущности
+     */
     @Column (name="idGsm")
     private Gsm idGsm;
     
     /**
-    * Индикация системы GPS в отдельной сущности
-    */
+     * Индикация системы GPS в отдельной сущности
+     */
     @Column (name="idGps")
     private Gps idGps;
-//    /**
-//    * Установленное оборудование
-//    */
-//    @Column (name="IdEquipment")
-//    private Equipment IdEquipment;
 
+    /**
+     * Установили или отремонтировали
+     */
     @Column (name="installOrRepairComment")
     private String installOrRepairComment;
-      /**
-      * количество установленного оборудования
+    
+    /**
+      * Количество установленного оборудования
       */
     @Column (name="kolvoEquipment")
     private int kolvoEquipment;
     
     /**
-    * Лицо, принимающее акт
-    */
+     * Лицо, принимающее акт
+     */
     @Column (name="idRecipient")
     private Receive idRecipient;
     
     /**
-    * Флаг подписанности акта с принимающей стороны
-    */
+     * Флаг подписанности акта с принимающей стороны
+     */
     @Column (name="receive")
     private boolean receive;
 
 
     /**
-    * Комментарий
-    */
+     * Комментарий
+     */
     @Column (name="description")
     private String description;
-    /**
-    * Подразделение
-    */
-    @Column (name="idUnits")
-    private Units idUnits;
-    /**
-    * Флаг заполненности акта
-    */
-    @Column (name="completenessFlag")
-    private boolean completenessFlag;
     
     /**
-    * Бригада, которая смонтировала оборудование
-    * удалить и сделать через array list
-    */
-//    @Column (name="idBrigade")
-//    private Brigade idBrigade;
+     * Подразделение
+     */
+    @Column (name="idUnits")
+    private Units idUnits;
+    
+    /**
+     * Флаг заполненности акта
+     */
+    @Column (name="completenessFlag")
+    private boolean completenessFlag;
 
-    public int getCodeRegion() {
-        return codeRegion;
-    }
-
-    public Date getDate() {
-        return date;
+    public CodeRegion getIdcodeRegion() {
+        return IdcodeRegion;
     }
 
     public int getNumber() {
         return number;
+    }
+
+    public Date getDate() {
+        return date;
     }
 
     public String getControllerSerialNumber() {
@@ -157,15 +140,19 @@ public class InstallAct {
     }
 
     public Gsm getIdGsm() {
-        return IdGsm;
+        return idGsm;
     }
 
-    public Equipment getIdEquipment() {
-        return IdEquipment;
+    public Gps getIdGps() {
+        return idGps;
     }
 
     public String getInstallOrRepairComment() {
         return installOrRepairComment;
+    }
+
+    public int getKolvoEquipment() {
+        return kolvoEquipment;
     }
 
     public Receive getIdRecipient() {
@@ -180,28 +167,24 @@ public class InstallAct {
         return description;
     }
 
-    public Filial getIdFilial() {
-        return idFilial;
+    public Units getIdUnits() {
+        return idUnits;
     }
 
     public boolean isCompletenessFlag() {
         return completenessFlag;
     }
 
-    public Brigade getIdBrigade() {
-        return idBrigade;
-    }
-
-    public void setCodeRegion(int codeRegion) {
-        this.codeRegion = codeRegion;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
+    public void setIdcodeRegion(CodeRegion IdcodeRegion) {
+        this.IdcodeRegion = IdcodeRegion;
     }
 
     public void setNumber(int number) {
         this.number = number;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     public void setControllerSerialNumber(String controllerSerialNumber) {
@@ -220,16 +203,20 @@ public class InstallAct {
         this.simCardNumberMobOperator = simCardNumberMobOperator;
     }
 
-    public void setIdGsm(Gsm IdGsm) {
-        this.IdGsm = IdGsm;
+    public void setIdGsm(Gsm idGsm) {
+        this.idGsm = idGsm;
     }
 
-    public void setIdEquipment(Equipment IdEquipment) {
-        this.IdEquipment = IdEquipment;
+    public void setIdGps(Gps idGps) {
+        this.idGps = idGps;
     }
 
     public void setInstallOrRepairComment(String installOrRepairComment) {
         this.installOrRepairComment = installOrRepairComment;
+    }
+
+    public void setKolvoEquipment(int kolvoEquipment) {
+        this.kolvoEquipment = kolvoEquipment;
     }
 
     public void setIdRecipient(Receive idRecipient) {
@@ -244,15 +231,19 @@ public class InstallAct {
         this.description = description;
     }
 
-    public void setIdFilial(Filial idFilial) {
-        this.idFilial = idFilial;
+    public void setIdUnits(Units idUnits) {
+        this.idUnits = idUnits;
     }
 
     public void setCompletenessFlag(boolean completenessFlag) {
         this.completenessFlag = completenessFlag;
     }
+    
+    /**
+    * Бригада, которая смонтировала оборудование
+    * удалить и сделать через array list
+    */
+//    @Column (name="idBrigade")
+//    private Brigade idBrigade;
 
-    public void setIdBrigade(Brigade idBrigade) {
-        this.idBrigade = idBrigade;
-    }
 }

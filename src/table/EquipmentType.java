@@ -15,17 +15,35 @@ public class EquipmentType {
    @Id
    @Column (name="id")
    private int id; 
-   
+   /**
+    * Тип оборудования (Омником,Техноком)
+    */
    @Column (name="type")
    private String type; 
    /**
-    * Стандартная длина кабеля
+    * Стандартная длина линейки
     */
    @Column (name="length")
    private int length; 
    
    @Column (name="model")
    private String model; 
+
+    public int getId() {
+        return id;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public int getLength() {
+        return length;
+    }
+
+    public String getModel() {
+        return model;
+    }
 
     public void setId(int id) {
         this.id = id;
@@ -43,20 +61,4 @@ public class EquipmentType {
         this.model = model;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public int getLength() {
-        return length;
-    }
-
-    public String getModel() {
-        return model;
-    }
-    
 }

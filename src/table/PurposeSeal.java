@@ -15,7 +15,6 @@ import javax.persistence.Table;
  * pawka9494@mail.ru
  */
 
-
 /**
  * Назначение пломбы
  */
@@ -29,4 +28,21 @@ public class PurposeSeal {
    
    @Column (name="purposeSeal")
    private String purposeSeal;
+
+    public int getId() {
+        return id;
+    }
+
+    public String getPurposeSeal() {
+        return purposeSeal;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setPurposeSeal(String purposeSeal) {
+        this.purposeSeal = purposeSeal;
+    }
+   
 }

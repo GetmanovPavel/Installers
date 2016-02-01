@@ -16,9 +16,27 @@ public class RepeatCalibration {
    @Id
    @Column (name="id")
    private int id; 
+   
    /**
     * Тарировка(первичная или повторная)
     */
    @Column (name="calibrationCount")
    private String calibrationCount;
+
+    public int getId() {
+        return id;
+    }
+
+    public String getCalibrationCount() {
+        return calibrationCount;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setCalibrationCount(String calibrationCount) {
+        this.calibrationCount = calibrationCount;
+    }
+   
 }

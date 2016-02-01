@@ -15,6 +15,7 @@ import javax.persistence.Table;
 public class Vehicle {
     @Column (name="idGuideTechnique")
     private GuideTechnique idGuideTechnique;
+    
     @Id
     @Column (name="StateNumber")
     private String stateNumber;

@@ -21,10 +21,13 @@ public class GuideTechnique {
     @Id
     @Column (name="id")
     private int id;
+    
     @Column (name="Mark")
     private String mark;
+    
     @Column (name="Model")
     private String model;
+    
     @Column (name="Type")
     private String type;
 
