@@ -14,13 +14,12 @@ public class Installers {
 
     public static void main(String[] args) throws SQLException {
             Factory factory = Factory.getInstance();
-             InstallActDao aktInstallDao = factory.getAktInstallDao();
-//        
-//     List <InstallAct> installActs = InstallActDao.getInstallActs();
-//      for (InstallAct installAct:installActs) {
-//          System.out.println(InstallAct.getId()+ " "+InstallAct.getStateNumber()+ " "
-//                        +InstallAct.getDate());
-//       }
+             InstallActDao aktInstallDao = factory.getInstallActDao();
+        
+   List <InstallAct> installActs = aktInstallDao.getInstallActs();
+      for (InstallAct installAct:installActs) {
+         System.out.println(installAct.getDate()+" " );
+       }
     }
     
 }

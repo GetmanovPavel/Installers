@@ -1,7 +1,9 @@
 package table;
 
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -12,11 +14,14 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="Vehicle")
-public class Vehicle {
+public class Vehicle implements Serializable {
+    @Id @GeneratedValue
+    @Column (name="id")
+    private int id;
+    
     @Column (name="idGuideTechnique")
     private GuideTechnique idGuideTechnique;
     
-    @Id
     @Column (name="StateNumber")
     private String stateNumber;
     

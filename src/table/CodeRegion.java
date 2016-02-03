@@ -5,6 +5,7 @@
  */
 package table;
 
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -17,7 +18,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="CodeRegion")
-public class CodeRegion {
+public class CodeRegion implements Serializable {
  /**
  * Код региона
  */

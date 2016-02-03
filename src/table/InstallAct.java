@@ -1,9 +1,15 @@
 package table;
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import static javax.persistence.TemporalType.TIMESTAMP;
 /**
  * @author Гетманов Павел
  * pawka9494@mail.ru
@@ -11,60 +17,70 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="installAct")
-public class InstallAct {
+public class InstallAct implements Serializable {
     /**
-    * Код региона
-    */
+      * Код региона
+      */
+    @ManyToOne
     @Column (name="IdcodeRegion")
     private CodeRegion IdcodeRegion;
     
     /**
-    * Номер акта внутри телеметрикс
-    */
+      * Номер акта внутри телеметрикс
+      */
+    @Id
     @Column (name="number")
     private int number;
     
     /**
-    * Дата заполнения акта
-    */
+      * Дата заполнения акта
+      */
+    @Temporal(TIMESTAMP)
     @Column (name="date")
     private Date date;
     
     /**
-    * Ключевое поле
-    * Серийный номер контроллера 
-    */
-    @Id
+     * Ссылка на технику, на которую устанавливается оборудование
+     */
+    @ManyToOne
+    @Column (name="idVehicle")
+    private Vehicle idVehicle;
+    
+    /**
+      * Серийный номер контроллера 
+      */
     @Column (name="controllerSerialNumber")
     private String controllerSerialNumber;
     
     /**
-    * Абонентский номер Sim карты 1
-    */
+      * Абонентский номер Sim карты 1
+      */
     @Column (name="simCardAbonentNumber1")
     private String simCardAbonentNumber1;
     
     /**
-    * Абонентский номер Sim карты 2
-    */
+      * Абонентский номер Sim карты 2
+      */
     @Column (name="simCardAbonentNumber2")
     private String simCardAbonentNumber2;
     
     /**
-    * номер Sim карты внутри мобильного оператора
-    */
+      * номер Sim карты внутри мобильного оператора
+      */
     @Column (name="simCardNumberMobOperator")
     private String simCardNumberMobOperator;
    
     /**
      * Индикация системы GSM в отдельной сущности
      */
+    @ManyToOne
     @Column (name="idGsm")
     private Gsm idGsm;
     
     /**
      * Индикация системы GPS в отдельной сущности
      */
+    @ManyToOne
     @Column (name="idGps")
     private Gps idGps;
 
@@ -83,6 +99,7 @@ public class InstallAct {
     /**
      * Лицо, принимающее акт
      */
+    @ManyToOne
     @Column (name="idRecipient")
     private Receive idRecipient;
     
@@ -92,16 +109,17 @@ public class InstallAct {
     @Column (name="receive")
     private boolean receive;
 
-
     /**
      * Комментарий
      */
+    @Lob
     @Column (name="description")
     private String description;
     
     /**
      * Подразделение
      */
+    @ManyToOne
     @Column (name="idUnits")
     private Units idUnits;
     
@@ -110,7 +128,13 @@ public class InstallAct {
      */
     @Column (name="completenessFlag")
     private boolean completenessFlag;
-
+    
+    /**
+     * Монтажники
+     */
+    @Column (name="personal")
+    private ArrayList <Personal> personal;
+    
     public CodeRegion getIdcodeRegion() {
         return IdcodeRegion;
     }
@@ -121,6 +145,10 @@ public class InstallAct {
 
     public Date getDate() {
         return date;
+    }
+
+    public Vehicle idVehicle() {
+        return idVehicle;
     }
 
     public String getControllerSerialNumber() {
@@ -185,6 +213,10 @@ public class InstallAct {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public void setIdVehicle(Vehicle idVehicle) {
+        this.idVehicle = idVehicle;
     }
 
     public void setControllerSerialNumber(String controllerSerialNumber) {

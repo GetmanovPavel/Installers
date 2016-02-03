@@ -1,7 +1,9 @@
 package table;
 
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -12,7 +14,8 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="Calibration")
-public class Calibration {
+public class Calibration implements Serializable {
+    @GeneratedValue
     @Id
     @Column (name="Id")
     private int id;

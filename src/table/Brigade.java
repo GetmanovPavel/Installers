@@ -1,5 +1,6 @@
 package table;
 
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -12,7 +13,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="Brigade")
-public class Brigade {
+public class Brigade implements Serializable {
     @Id
     @Column (name="idBrigade")
     private int idBrigade;

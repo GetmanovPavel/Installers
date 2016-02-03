@@ -20,7 +20,7 @@ public class Factory {
         return Factory.instance;
     }
     
-    public InstallActDao getAktInstallDao(){
+    public InstallActDao getInstallActDao(){
         if (installActDao == null) installActDao = new InstallActImpl();
         return installActDao;
     }

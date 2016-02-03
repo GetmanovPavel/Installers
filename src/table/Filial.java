@@ -1,7 +1,9 @@
 package table;
 
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -12,8 +14,8 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="Filial")
-public class Filial {
-    @Id
+public class Filial implements Serializable {
+    @Id @GeneratedValue
     @Column (name="Id")
     private int id;
     

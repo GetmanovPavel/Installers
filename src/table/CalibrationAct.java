@@ -1,10 +1,16 @@
 package table;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import static javax.persistence.TemporalType.TIMESTAMP;
 
 /**
  *
@@ -13,145 +19,147 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="CalibrationAct")
-public class CalibrationAct {
+public class CalibrationAct implements Serializable {
     
     /**
-    * Ключевое поле
-    * Номер
-    */
+     * Ключевое поле
+     * Номер
+     */
     @Id
     @Column (name="id")
     private int id;
     
     /**
-    * Дата заполнения акта
-    */
+     * Дата заполнения акта
+     */
+    @Temporal(TIMESTAMP)
     @Column (name="date")
     private Date date;
     
     /**
-    * Подразделение
-    */
+     * Подразделение
+     */
+    @ManyToOne
     @Column (name="idUnits")
     private Units idUnits;
     
-//    /**
-//    * Id бригады тарировщиков
-//    */
-//    @Column (name="idBrigade")
-//    private Brigade idBrigade;
+    /**
+     * Ссылка на технику
+     */
+    @ManyToOne
+    @Column (name="idVehicle")
+    private Vehicle idVehicle;
     
     /**
-    * Государственный номер
-    */
-    @Column (name="stateNumber")
-    private Vehicle stateNumber;
-    
-    /**
-    * Место установки
-    */
+     * Место установки
+     */
     @Column (name="installPlace")
     private String installPlace;
     
     /**
-    * Номер автографа
-    */
+     * Номер автографа
+     */
     @Column (name="avtografNumber")
     private String avtografNumber;
     
     /**
-    * Количество топливных баков
-    */
+     * Количество топливных баков
+     */
     @Column (name="tanksNumber")
     private int tanksNumber;
     
     /**
-    * Температура окружающей среды
-    */
+     * Температура окружающей среды
+     */
     @Column (name="ambientTemperature")
     private double ambientTemperature;
     
     /**
-    * Температура топлива
-    */
+     * Температура топлива
+     */
     @Column (name="fuelTemperature")
     private double fuelTemperature; 
     
     /**
-    *Состояние топлива слито/не слито
-    */ 
+     *Состояние топлива слито/не слито
+     */ 
     @Column (name="fuelCondition")
     private boolean fuelCondition; 
     
     /**
-    *Объем слитого топлива
-    */  
+     *Объем слитого топлива
+     */  
     @Column (name="fuelVolumeStolen")
     private double fuelVolumeStolen; 
     
     /**
-    *Объем бака
-    */ 
+     *Объем бака
+     */ 
     @Column (name="tankVolume")
     private double tankVolume;  
     
     /**
-    *Государственный номер топливозаправщика, предоставившего топливо
-    */     
+     *Государственный номер топливозаправщика, предоставившего топливо
+     */
+    @ManyToOne
     @Column (name="stateNumberTanker")
     private Vehicle stateNumberTanker;    
     
     /**
-    *Количество топлива для тарировки
-    */ 
+     *Количество топлива для тарировки
+     */ 
     @Column (name="calibrationFuelVolume")
     private double calibrationFuelVolume; 
     
     /**
-    *Заполненность бака в %
-    */
+     *Заполненность бака в %
+     */
     @Column (name="fuelLevel")
     private double fuelLevel; 
     
     /**
-    *Наличие бумажной тарировки
-    */ 
+     *Наличие бумажной тарировки
+     */ 
     @Column (name="paperCalibration")
     private boolean paperCalibration; 
     
     /**
-    *Наличие тарировки в мониторинге
-    */ 
+     *Наличие тарировки в мониторинге
+     */ 
     @Column (name="monitoringCalibration")
     private boolean monitoringCalibration;
     
     /**
-    *Наличие паспорта
-    */
+     *Наличие паспорта
+     */
     @Column (name="passport")
     private boolean passport;
     
     /**
-    *Дут не по центру
-    */
+     *Дут не по центру
+     */
+    @ManyToOne
     @Column (name="idFlsNotCentered")
     private FlsNotCentered idFlsNotCentered;
      
     /**
     *Серийный номер контроллера
     */
+    @ManyToOne
     @Column (name="controllerSerialNumber")
     private InstallAct controllerSerialNumber;
     
     /**
     * Тарировка
     */
+    @ManyToOne
     @Column (name="calibration")
     private Calibration calibration;
     
     /**
     * Повторная Тарировка
     */
+    @ManyToOne
     @Column (name="repeatCalibration")
     private RepeatCalibration repeatCalibration;
     
@@ -170,8 +178,15 @@ public class CalibrationAct {
     /**
     *Комментарий
     */
+    @Lob
     @Column (name="description")
     private String description;
+    
+     /**
+     * Монтажники
+     */
+    @Column (name="personal")
+    private ArrayList <Personal> personal;
     
     /**
     *Флаг заполненности акта
@@ -191,8 +206,8 @@ public class CalibrationAct {
         this.idUnits = idUnits;
     }
 
-    public void setStateNumber(Vehicle stateNumber) {
-        this.stateNumber = stateNumber;
+    public void setIdVehicle(Vehicle idVehicle) {
+        this.idVehicle = idVehicle;
     }
 
     public void setInstallPlace(String installPlace) {
@@ -295,8 +310,8 @@ public class CalibrationAct {
         return idUnits;
     }
 
-    public Vehicle getStateNumber() {
-        return stateNumber;
+    public Vehicle getIdVehicle() {
+        return idVehicle;
     }
 
     public String getInstallPlace() {
