@@ -6,6 +6,7 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -40,14 +41,14 @@ public class CalibrationAct implements Serializable {
      * Подразделение
      */
     @ManyToOne
-    @Column (name="idUnits")
+    @JoinColumn (name="idUnits")
     private Units idUnits;
     
     /**
      * Ссылка на технику
      */
     @ManyToOne
-    @Column (name="idVehicle")
+    @JoinColumn (name="idVehicle")
     private Vehicle idVehicle;
     
     /**
@@ -102,7 +103,7 @@ public class CalibrationAct implements Serializable {
      *Государственный номер топливозаправщика, предоставившего топливо
      */
     @ManyToOne
-    @Column (name="stateNumberTanker")
+    @JoinColumn (name="stateNumberTanker")
     private Vehicle stateNumberTanker;    
     
     /**
@@ -139,28 +140,28 @@ public class CalibrationAct implements Serializable {
      *Дут не по центру
      */
     @ManyToOne
-    @Column (name="idFlsNotCentered")
+    @JoinColumn (name="idFlsNotCentered")
     private FlsNotCentered idFlsNotCentered;
      
     /**
     *Серийный номер контроллера
     */
     @ManyToOne
-    @Column (name="controllerSerialNumber")
+    @JoinColumn (name="controllerSerialNumber")
     private InstallAct controllerSerialNumber;
     
     /**
     * Тарировка
     */
     @ManyToOne
-    @Column (name="calibration")
+    @JoinColumn (name="calibration")
     private Calibration calibration;
     
     /**
     * Повторная Тарировка
     */
     @ManyToOne
-    @Column (name="repeatCalibration")
+    @JoinColumn (name="repeatCalibration")
     private RepeatCalibration repeatCalibration;
     
     /**

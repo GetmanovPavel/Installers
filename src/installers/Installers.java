@@ -14,9 +14,9 @@ public class Installers {
 
     public static void main(String[] args) throws SQLException {
             Factory factory = Factory.getInstance();
-             InstallActDao aktInstallDao = factory.getInstallActDao();
+             InstallActDao installActDao = factory.getInstallActDao();
         
-   List <InstallAct> installActs = aktInstallDao.getInstallActs();
+   List <InstallAct> installActs = installActDao.getInstallActs();
       for (InstallAct installAct:installActs) {
          System.out.println(installAct.getDate()+" " );
        }

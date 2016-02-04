@@ -5,6 +5,7 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -22,7 +23,7 @@ public class InstallAct implements Serializable {
       * Код региона
       */
     @ManyToOne
-    @Column (name="IdcodeRegion")
+    @JoinColumn (name="IdcodeRegion")
     private CodeRegion IdcodeRegion;
     
     /**
@@ -43,7 +44,7 @@ public class InstallAct implements Serializable {
      * Ссылка на технику, на которую устанавливается оборудование
      */
     @ManyToOne
-    @Column (name="idVehicle")
+    @JoinColumn (name="idVehicle")
     private Vehicle idVehicle;
     
     /**
@@ -74,14 +75,14 @@ public class InstallAct implements Serializable {
      * Индикация системы GSM в отдельной сущности
      */
     @ManyToOne
-    @Column (name="idGsm")
+    @JoinColumn (name="idGsm")
     private Gsm idGsm;
     
     /**
      * Индикация системы GPS в отдельной сущности
      */
     @ManyToOne
-    @Column (name="idGps")
+    @JoinColumn (name="idGps")
     private Gps idGps;
 
     /**
@@ -100,7 +101,7 @@ public class InstallAct implements Serializable {
      * Лицо, принимающее акт
      */
     @ManyToOne
-    @Column (name="idRecipient")
+    @JoinColumn (name="idRecipient")
     private Receive idRecipient;
     
     /**
@@ -120,7 +121,7 @@ public class InstallAct implements Serializable {
      * Подразделение
      */
     @ManyToOne
-    @Column (name="idUnits")
+    @JoinColumn (name="idUnits")
     private Units idUnits;
     
     /**

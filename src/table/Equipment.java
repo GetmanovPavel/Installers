@@ -5,6 +5,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -27,13 +29,15 @@ class Equipment implements Serializable {
    /**
     * Связь с актом монтажа
     */
-   @Column (name="serialNumberController")
-   private InstallAct serialNumberController;
+   @ManyToOne
+   @JoinColumn (name="numberInstallAct")
+   private InstallAct numberInstallAct;
    
    /**
     * Связь с типом оборудования
     */
-   @Column (name="idType")
+   @ManyToOne
+   @JoinColumn  (name="idType")
    private EquipmentType idType; 
    
    /**
@@ -56,8 +60,8 @@ class Equipment implements Serializable {
         return purposeEquipment;
     }
 
-    public InstallAct getSerialNumberController() {
-        return serialNumberController;
+    public InstallAct getNumberInstallAct() {
+        return numberInstallAct;
     }
 
     public EquipmentType getIdType() {
@@ -80,8 +84,8 @@ class Equipment implements Serializable {
         this.purposeEquipment = purposeEquipment;
     }
 
-    public void setSerialNumberController(InstallAct serialNumberController) {
-        this.serialNumberController = serialNumberController;
+    public void setNumberInstallAct(InstallAct numberInstallAct) {
+        this.numberInstallAct = numberInstallAct;
     }
 
     public void setIdType(EquipmentType idType) {

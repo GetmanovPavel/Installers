@@ -5,6 +5,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -26,13 +28,15 @@ public class Filling implements Serializable {
    /**
     * Назначение пломбы
     */
-   @Column (name="idPurposeSeal")
+   @ManyToOne
+   @JoinColumn  (name="idPurposeSeal")
    private PurposeSeal idPurposeSeal;
    
    /**
     * Тип пломбы
     */
-   @Column (name="idTypeSeal")
+   @ManyToOne
+   @JoinColumn  (name="idTypeSeal")
    private TypeSeal idTypeSeal;
    
    /**
@@ -44,14 +48,16 @@ public class Filling implements Serializable {
    /**
     * Данные пломбировщика
     */
-   @Column (name="id")
+   @ManyToOne
+   @JoinColumn  (name="idPersonal")
    private Personal idPersonal; 
    
    /**
     * Связь с актом монтажа
     */
-   @Column (name="serialNumberController")
-   private InstallAct serialNumberController;
+   @ManyToOne
+   @JoinColumn  (name="numberInstallAct")
+   private InstallAct numberInstallAct;
    //подпись решили оставить в фотографиях?
 
     public int getId() {
@@ -74,8 +80,8 @@ public class Filling implements Serializable {
         return idPersonal;
     }
 
-    public InstallAct getSerialNumberController() {
-        return serialNumberController;
+    public InstallAct getNumberInstallAct() {
+        return numberInstallAct;
     }
 
     public void setId(int id) {
@@ -98,8 +104,8 @@ public class Filling implements Serializable {
         this.idPersonal = idPersonal;
     }
 
-    public void setSerialNumberController(InstallAct serialNumberController) {
-        this.serialNumberController = serialNumberController;
+    public void setNumberInstallAct(InstallAct numberInstallAct) {
+        this.numberInstallAct = numberInstallAct;
     }
 
 }
