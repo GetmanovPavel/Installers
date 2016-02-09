@@ -1,44 +1,27 @@
 package impl;
 
+import dao.CodeRegionDao;
 import java.sql.SQLException;
 import java.util.List;
 import org.hibernate.Session;
-import org.hibernate.cfg.AnnotationConfiguration;
-import org.hibernate.cfg.Configuration;
+import table.CalibrationAct;
+import table.CodeRegion;
 import util.HibernateUtil;
-import dao.InstallActDao;
-import table.InstallAct;
 
 /**
  *
  * @author Гетманов Павел
  * pawka9494@mail.ru
  */
-public class InstallActImpl implements InstallActDao{
+public class CodeRegionImpl implements CodeRegionDao {
 
     @Override
-    public void addInstallAct(InstallAct installAct) throws SQLException {
-        Session session = null;
+    public void addCodeRegion(CodeRegion codeRegion) throws SQLException {
+    Session session = null;
         try{
           session= HibernateUtil.getSessionFactory().openSession();
           session.beginTransaction();
-          session.save(installAct);
-          session.getTransaction().commit();
-        }catch(Exception e){
-            e.printStackTrace();
-        }finally{
-            if((session!=null)&&(session.isOpen())) session.close();
-        }
-       
-    }
-
-    @Override
-    public void deleteInstallAct(InstallAct installAct) throws SQLException {
-          Session session = null;
-        try{
-          session= HibernateUtil.getSessionFactory().openSession();
-          session.beginTransaction();
-          session.delete(installAct);
+          session.save(codeRegion);
           session.getTransaction().commit();
         }catch(Exception e){
             e.printStackTrace();
@@ -48,12 +31,27 @@ public class InstallActImpl implements InstallActDao{
     }
 
     @Override
-    public InstallAct getInstallAct(int id) throws SQLException {
-        InstallAct result = null;
+    public void deleteCodeRegion(CodeRegion codeRegion) throws SQLException {
+           Session session = null;
+        try{
+          session= HibernateUtil.getSessionFactory().openSession();
+          session.beginTransaction();
+          session.delete(codeRegion);
+          session.getTransaction().commit();
+        }catch(Exception e){
+            e.printStackTrace();
+        }finally{
+            if((session!=null)&&(session.isOpen())) session.close();
+        }
+    }
+
+    @Override
+    public CodeRegion getCodeRegion(int id) throws SQLException {
+        CodeRegion result = null;
         Session session = null;
         try{
           session= HibernateUtil.getSessionFactory().openSession();
-          result = (InstallAct) session.load(InstallAct.class,id);
+          result = (CodeRegion) session.load(CodeRegion.class,id);
         }catch(Exception e){
             e.printStackTrace();
         }finally{
@@ -64,19 +62,19 @@ public class InstallActImpl implements InstallActDao{
     }
 
     @Override
-    public List<InstallAct> getInstallActs() throws SQLException {
-        List<InstallAct> installActs = null;
+    public List<CodeRegion> getCodeRegions() throws SQLException {
+        List<CodeRegion> codeRegions = null;
         Session session= null;
          try{
           session= HibernateUtil.getSessionFactory().openSession();
-          installActs = session.createCriteria(InstallAct.class).list();
+          codeRegions = session.createCriteria(CodeRegion.class).list();
           
         }catch(Exception e){
             e.printStackTrace();
         }finally{
             if((session!=null)&&(session.isOpen())) session.close();
         }
-        return installActs;
+        return codeRegions;
     }
     
 }

@@ -1,44 +1,31 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package impl;
 
+import dao.CalibrationDao;
 import java.sql.SQLException;
 import java.util.List;
 import org.hibernate.Session;
-import org.hibernate.cfg.AnnotationConfiguration;
-import org.hibernate.cfg.Configuration;
+import table.Calibration;
 import util.HibernateUtil;
-import dao.InstallActDao;
-import table.InstallAct;
 
 /**
  *
  * @author Гетманов Павел
  * pawka9494@mail.ru
  */
-public class InstallActImpl implements InstallActDao{
+public class CalibrationImpl implements CalibrationDao{
 
     @Override
-    public void addInstallAct(InstallAct installAct) throws SQLException {
-        Session session = null;
-        try{
-          session= HibernateUtil.getSessionFactory().openSession();
-          session.beginTransaction();
-          session.save(installAct);
-          session.getTransaction().commit();
-        }catch(Exception e){
-            e.printStackTrace();
-        }finally{
-            if((session!=null)&&(session.isOpen())) session.close();
-        }
-       
-    }
-
-    @Override
-    public void deleteInstallAct(InstallAct installAct) throws SQLException {
+    public void addCalibration(Calibration calibration) throws SQLException {
           Session session = null;
         try{
           session= HibernateUtil.getSessionFactory().openSession();
           session.beginTransaction();
-          session.delete(installAct);
+          session.save(calibration);
           session.getTransaction().commit();
         }catch(Exception e){
             e.printStackTrace();
@@ -48,12 +35,27 @@ public class InstallActImpl implements InstallActDao{
     }
 
     @Override
-    public InstallAct getInstallAct(int id) throws SQLException {
-        InstallAct result = null;
+    public void deleteCalibration(Calibration calibration) throws SQLException {
+           Session session = null;
+        try{
+          session= HibernateUtil.getSessionFactory().openSession();
+          session.beginTransaction();
+          session.delete(calibration);
+          session.getTransaction().commit();
+        }catch(Exception e){
+            e.printStackTrace();
+        }finally{
+            if((session!=null)&&(session.isOpen())) session.close();
+        }
+    }
+
+    @Override
+    public Calibration getCalibration(int id) throws SQLException {
+        Calibration result = null;
         Session session = null;
         try{
           session= HibernateUtil.getSessionFactory().openSession();
-          result = (InstallAct) session.load(InstallAct.class,id);
+          result = (Calibration) session.load(Calibration.class,id);
         }catch(Exception e){
             e.printStackTrace();
         }finally{
@@ -64,19 +66,19 @@ public class InstallActImpl implements InstallActDao{
     }
 
     @Override
-    public List<InstallAct> getInstallActs() throws SQLException {
-        List<InstallAct> installActs = null;
+    public List<Calibration> getCalibrations() throws SQLException {
+        List<Calibration> calibrations = null;
         Session session= null;
          try{
           session= HibernateUtil.getSessionFactory().openSession();
-          installActs = session.createCriteria(InstallAct.class).list();
+          calibrations = session.createCriteria(Calibration.class).list();
           
         }catch(Exception e){
             e.printStackTrace();
         }finally{
             if((session!=null)&&(session.isOpen())) session.close();
         }
-        return installActs;
+        return calibrations;
     }
     
 }
