@@ -7,6 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -189,6 +190,9 @@ public class CalibrationAct implements Serializable {
     @Column (name="personal")
     private ArrayList <Personal> personal;
     
+//    @CollectionOfElements
+//    @JoinTable( name="CalibrationAct_IMAGE")
+//    private Set<String> images;
     /**
     *Флаг заполненности акта
     */

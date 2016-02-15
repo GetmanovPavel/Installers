@@ -16,7 +16,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="Equipment")
-class Equipment implements Serializable { 
+public class Equipment implements Serializable { 
    @Id @GeneratedValue
    @Column (name="id")
    private int id; 

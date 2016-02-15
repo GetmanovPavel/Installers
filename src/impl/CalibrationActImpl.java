@@ -62,7 +62,7 @@ public class CalibrationActImpl implements CalibrationActDao {
 
     @Override
     public List<CalibrationAct> getCalibrationActs() throws SQLException {
-          List<CalibrationAct> calibrationActs = null;
+        List<CalibrationAct> calibrationActs = null;
         Session session= null;
          try{
           session= HibernateUtil.getSessionFactory().openSession();
