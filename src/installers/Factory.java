@@ -27,6 +27,7 @@ import impl.CodeRegionImpl;
 import impl.EquipmentImpl;
 import impl.EquipmentTypeImpl;
 import impl.FilialImpl;
+import impl.FillingImpl;
 import impl.FlsNotCenteredImpl;
 import impl.GpsImpl;
 import impl.GsmImpl;
@@ -120,6 +121,16 @@ public class Factory {
         if (gsmDao == null) gsmDao = new GsmImpl();
         return gsmDao;
     }
+     
+        public FillingDao getFillingDao(){
+        if (fillingDao == null) fillingDao = new FillingImpl();
+        return fillingDao;
+    }   
+        
+        public PersonalDao getPersonalDao(){
+        if (personalDao == null) personalDao = new PersonalImpl();
+        return personalDao;
+    }   
         
         public GuideTechniqueDao getGuideTechniqueDao(){
         if (guideTechniqueDao == null) guideTechniqueDao = new GuideTechniqueImpl();
@@ -133,10 +144,10 @@ public class Factory {
         if (organizationDao == null) organizationDao = new OrganizationImpl();
         return organizationDao;
     }  
-        public PersonalDao getPersonalDao(){
-        if (personalDao == null) personalDao = new PersonalImpl();
-        return personalDao;
-    } 
+//        public PersonalDao getPersonalDao(){
+//        if (personalDao == null) personalDao = new PersonalImpl();
+//        return personalDao;
+  //  } 
         public PurposeSealDao getPurposeSealDao(){
         if (purposeSealDao == null) purposeSealDao = new PurposeSealImpl();
         return purposeSealDao;

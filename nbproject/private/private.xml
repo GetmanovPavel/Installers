@@ -3,19 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Валентина/Documents/NetBeansProjects/Installers/src/impl/ReceiveImpl.java</file>
-            <file>file:/C:/Users/Валентина/Documents/NetBeansProjects/Installers/src/dao/UnitsDao.java</file>
-            <file>file:/C:/Users/Валентина/Documents/NetBeansProjects/Installers/src/impl/TypeSealImpl.java</file>
-            <file>file:/C:/Users/Валентина/Documents/NetBeansProjects/Installers/src/impl/RepeatCalibrationImpl.java</file>
-            <file>file:/C:/Users/Валентина/Documents/NetBeansProjects/Installers/src/table/Vehicle.java</file>
-            <file>file:/C:/Users/Валентина/Documents/NetBeansProjects/Installers/src/impl/VehicleImpl.java</file>
-            <file>file:/C:/Users/Валентина/Documents/NetBeansProjects/Installers/src/table/TypeSeal.java</file>
-            <file>file:/C:/Users/Валентина/Documents/NetBeansProjects/Installers/src/impl/UnitsImpl.java</file>
-            <file>file:/C:/Users/Валентина/Documents/NetBeansProjects/Installers/src/installers/Factory.java</file>
-            <file>file:/C:/Users/Валентина/Documents/NetBeansProjects/Installers/src/table/Units.java</file>
-            <file>file:/C:/Users/Валентина/Documents/NetBeansProjects/Installers/src/dao/TypeSealDao.java</file>
-            <file>file:/C:/Users/Валентина/Documents/NetBeansProjects/Installers/src/dao/VehicleDao.java</file>
-            <file>file:/C:/Users/Валентина/Documents/NetBeansProjects/Installers/src/impl/PurposeSealImpl.java</file>
+            <file>file:/C:/Users/Валентина/Documents/NetBeansProjects/Installers/src/table/CodeRegion.java</file>
+            <file>file:/C:/Users/Валентина/Documents/NetBeansProjects/Installers/src/installers/Installers.java</file>
+            <file>file:/C:/Users/Валентина/Documents/NetBeansProjects/Installers/src/installers/Install.java</file>
+            <file>file:/C:/Users/Валентина/Documents/NetBeansProjects/Installers/src/installers/Install2.java</file>
+            <file>file:/C:/Users/Валентина/Documents/NetBeansProjects/Installers/src/installers/CodeRegionModel.java</file>
+            <file>file:/C:/Users/Валентина/Documents/NetBeansProjects/Installers/src/dao/CodeRegionDao.java</file>
+            <file>file:/C:/Users/Валентина/Documents/NetBeansProjects/Installers/src/installers/CodeRegionForm.java</file>
+            <file>file:/C:/Users/Валентина/Documents/NetBeansProjects/Installers/src/installers/CalibrationAct.java</file>
         </group>
     </open-files>
 </project-private>

@@ -55,7 +55,7 @@ public class CodeRegionImpl implements CodeRegionDao {
         }catch(Exception e){
             e.printStackTrace();
         }finally{
-            if((session!=null)&&(session.isOpen())) session.close();
+        //    if((session!=null)&&(session.isOpen())) session.close();
         }
         
         return result;

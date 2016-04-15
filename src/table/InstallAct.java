@@ -68,9 +68,16 @@ public class InstallAct implements Serializable {
     /**
       * номер Sim карты внутри мобильного оператора
       */
-    @Column (name="simCardNumberMobOperator")
-    private String simCardNumberMobOperator;
+    @Column (name="simCardNumberMobOperator1")
+    private String simCardNumberMobOperator1;
    
+     /**
+      * номер Sim карты внутри мобильного оператора
+      */
+    @Column (name="simCardNumberMobOperator2")
+    private String simCardNumberMobOperator2;
+
+    
     /**
      * Индикация системы GSM в отдельной сущности
      */
@@ -144,7 +151,7 @@ public class InstallAct implements Serializable {
         return number;
     }
 
-    public Date getDate() {
+    public Date getDate(Date d) {
         return date;
     }
 
@@ -164,8 +171,8 @@ public class InstallAct implements Serializable {
         return simCardAbonentNumber2;
     }
 
-    public String getSimCardNumberMobOperator() {
-        return simCardNumberMobOperator;
+    public String getSimCardNumberMobOperator1() {
+        return simCardNumberMobOperator1;
     }
 
     public Gsm getIdGsm() {
@@ -200,6 +207,10 @@ public class InstallAct implements Serializable {
         return idUnits;
     }
 
+    public String getSimCardNumberMobOperator2() {
+        return simCardNumberMobOperator2;
+    }
+    
     public boolean isCompletenessFlag() {
         return completenessFlag;
     }
@@ -232,8 +243,8 @@ public class InstallAct implements Serializable {
         this.simCardAbonentNumber2 = simCardAbonentNumber2;
     }
 
-    public void setSimCardNumberMobOperator(String simCardNumberMobOperator) {
-        this.simCardNumberMobOperator = simCardNumberMobOperator;
+    public void setSimCardNumberMobOperator1(String simCardNumberMobOperator1) {
+        this.simCardNumberMobOperator1 = simCardNumberMobOperator1;
     }
 
     public void setIdGsm(Gsm idGsm) {
@@ -271,6 +282,11 @@ public class InstallAct implements Serializable {
     public void setCompletenessFlag(boolean completenessFlag) {
         this.completenessFlag = completenessFlag;
     }
+
+     public void setSimCardNumberMobOperator2(String simCardNumberMobOperator2) {
+        this.simCardNumberMobOperator2 = simCardNumberMobOperator2;
+    }
+
     
     /**
     * Бригада, которая смонтировала оборудование

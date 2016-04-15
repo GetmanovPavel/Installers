@@ -13,24 +13,24 @@ import javax.persistence.Table;
 
 /**
  *
- * @author Гетманов Павел
- * pawka9494@mail.ru
+ * @author Гетманов Павел pawka9494@mail.ru
  */
 @Entity
-@Table(name="CodeRegion")
+@Table(name = "CodeRegion")
 public class CodeRegion implements Serializable {
- /**
- * Код региона
- */
+
+    /**
+     * Код региона
+     */
     @Id
-    @Column (name="Id")
+    @Column(name = "Id")
     private int id;
-    
- /**
- * Название региона
- */   
-   @Column (name="regionName")
-   private String regionName; 
+
+    /**
+     * Название региона
+     */
+    @Column(name = "regionName")
+    private String regionName;
 
     public void setId(int id) {
         this.id = id;
@@ -47,5 +47,10 @@ public class CodeRegion implements Serializable {
     public String getRegionName() {
         return regionName;
     }
-   
+
+    @Override
+    public String toString() {
+        return "CodeRegion{" + "id=" + id + ", regionName=" + regionName + '}';
+    }
+
 }
